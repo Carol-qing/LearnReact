@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>2-回调函数类型的ref</title>
+<style></style>
+</head>
+<body>
+
+    <div id="text"></div>
+
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js//react-dom.development.js"></script>
+    <script type="text/javascript" src="../js//babel.min.js"></script>
+    <script type="text/javascript" src="../js//prop-types.js"></script>
+
+    <script type="text/babel">
+        class Demo extends React.Component {
+            state = {isHot:true}
+            showData = () =>{
+                console.log(this);
+                const {input1} = this
+                alert(input1.value)
+            }
+            cdf = ()=>{
+                console.log(this);
+                const {isHot} = this.state;
+                // 更新状态
+                this.setState({isHot:!isHot})
+                console.log(isHot);
+            }
+            render() {    
+                const {isHot} = this.state;            
+                return (
+                    <div>
+                        <h2>今天天气很{isHot ? '热': '冷'}</h2> <br/>
+                        <input ref={(c) =>{this.input1 = c; console.log('@'+c);}} type="text" placeholder="点击提示数据"/><br/><br/>
+                        <button onClick={this.showData}>点击显示左侧信息</button><br/><br/>
+                        <button onClick={this.cdf}>点击改变天气</button>&nbsp; 
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<Demo />,document.getElementById('text'))
+    </script>
+
+</body>
+</html>

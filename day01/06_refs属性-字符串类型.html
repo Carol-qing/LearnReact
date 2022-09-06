@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>1-字符串类型的ref</title>
+<style></style>
+</head>
+<body>
+
+    <div id="text"></div>
+
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js//react-dom.development.js"></script>
+    <script type="text/javascript" src="../js//babel.min.js"></script>
+    <script type="text/javascript" src="../js//prop-types.js"></script>
+
+    <script type="text/babel">
+        class Demo extends React.Component {
+            showData = () =>{
+                console.log(this);
+                const {input1} = this.refs
+                alert(input1.value)
+            }
+            showData2 = () =>{
+                alert(this.refs.input2.value)
+            }
+            render() {
+                return (
+                    <div>
+                        <input ref={"input1"} type="text" placeholder="点击提示数据"/>&nbsp;
+                        <button onClick={this.showData}>点击显示左侧信息</button>&nbsp;
+                        <input ref="input2" type="text" onBlur={this.showData2} placeholder="失去焦点提示信息"/>&nbsp;
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<Demo />,document.getElementById('text'))
+    </script>
+
+</body>
+</html>

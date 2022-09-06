@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>新生命周期方法使用场景</title>
+<style>
+    .list{
+        width: 200px;
+        height: 150px;
+        background-color: rgb(131, 231, 231);
+        overflow: auto;
+    }
+    .new {
+        height: 40px;
+    }
+</style>
+
+</head>
+<body>
+    <!-- 容器 -->
+    <div id="test"></div>
+
+    <!-- 引入 -->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js//react-dom.development.js"></script>
+    <script type="text/javascript" src="../js//babel.min.js"></script>
+
+    <!-- 渲染页面 -->
+    <script type="text/babel">
+        class New extends React.Component{
+            state = {newsArr:[]}
+
+            componentDidMount() {
+                setInterval(() =>{
+                    const {newsArr} = this.state
+                    const news = '新闻'+ (newsArr.length+1)
+                    this.setState({newsArr:[news,...newsArr]})
+                },1000)
+            }
+            getSnapshotBeforeUpdate(){
+                console.log(this);
+                return this.refs.list.scrollHeight
+            }
+            componentDidUpdate(preProps,preState,height){
+                return this.refs.list.scrollTop += this.refs.scrollHeight - height
+            }
+
+            render(){
+                return (
+                    <div className="list" ref="list">
+                        {
+                            this.state.newsArr.map((n,index)=>{
+                                return <div key={index} className="news">{n}</div>
+                            })
+                        }
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<New/>,document.getElementById('test'))
+    </script>
+</body>
+</html>

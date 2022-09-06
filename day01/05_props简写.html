@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>props属性</title>
+<style></style>
+
+</head>
+<body>
+    <!-- 容器 -->
+    <div id="test1">
+    </div>
+    <div id="test2">
+    </div>
+
+    <!-- 引入 -->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js//react-dom.development.js"></script>
+    <script type="text/javascript" src="../js//babel.min.js"></script>
+    <script type="text/javascript" src="../js//prop-types.js"></script>
+
+    <!-- 渲染页面 -->
+    <script type="text/babel">
+        class MyCompoent extends React.Component{
+
+            render() {
+                const {name ,age, sex} = this.props;
+                return (
+                <ul>
+                    <li>姓名: {name}</li>
+                    <li>年龄:{age}</li>
+                    <li>性别：{sex}</li>
+                </ul>
+                )
+            }
+            static protoTypes = {
+            name:PropTypes.string.isRequire,
+            sex:PropTypes.string,
+            age:PropTypes.number,
+            }
+            static defaultProps = {
+            sex:'无'
+        }
+        }
+       
+    
+        const p = {name:'xxq',age:21,sex:'女'}
+        ReactDOM.render(<MyCompoent name="Jerry" age={20} />,document.getElementById('test1'))
+        ReactDOM.render(<MyCompoent {...p} />,document.getElementById('test2'))
+    </script>
+</body>
+</html>

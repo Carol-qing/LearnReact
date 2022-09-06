@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>state属性</title>
+<style></style>
+
+</head>
+<body>
+    <!-- 容器 -->
+    <div id="test"></div>
+
+    <!-- 引入 -->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js//react-dom.development.js"></script>
+    <script type="text/javascript" src="../js//babel.min.js"></script>
+
+    
+    <script type="text/babel">
+        class Weather extends React.Component {
+            constructor(props){
+                super(props)
+                // 初始化状态
+                this.state = {
+                    isHot:false
+                }
+                this.changeWeather = this.changeWeather.bind(this) //改变this指向,不然this指向的是undefind（严格模式下
+            }
+            render() {
+                console.log("render");
+                const {isHot} = this.state;
+                return (
+                 <h1 onClick={this.changeWeather}>今天天气很{isHot ? '炎热':'凉爽' }</h1>
+                )
+            }
+            changeWeather(){
+                console.log('方法被执行',this);
+                const isHot = this.state.isHot;
+                this.setState({
+                    isHot:!isHot
+                })
+            }
+        }
+        //  渲染组件
+        ReactDOM.render(<Weather/>,document.getElementById('test'))
+
+        
+    </script>
+</body>
+</html>
