@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom'
 
 export default class App extends Component {
   render() {
-    // console.log(this);
+    console.log(this);
     return (
        <div>
         {/* <NavLink className='list-group-item' to={this.props.to}>{this.props.title}</NavLink> */}

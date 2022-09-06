@@ -1,8 +1,9 @@
 // 创建”外壳“组件App
 import React,{Component} from 'react'
-import {Route,Switch,Redirect} from 'react-router-dom'
+import {Route,Switch} from 'react-router-dom'
 import About from './pages/About'
 import Home from './pages/Home'
+import Test from './pages/Test'
 import Header from './components/Header'
 import MyNavLink from './components/MyNavLink'
 
@@ -35,7 +36,7 @@ export default class App extends Component {
             <Switch>
             <Route path="/about" component={About}/>
             <Route path="/home" component={Home}/>
-            <Redirect to="/home"/>
+            <Route path="/home" component={Test}/>
             </Switch>
           </div>
         </div>
