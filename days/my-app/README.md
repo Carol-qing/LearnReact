@@ -1,3 +1,4 @@
+# 第五章：React路由
 ## 十、一般组件和路由组件
         1.写法
          一般组件：<Demo/>
@@ -50,3 +51,8 @@
 ## 十四、高级路由的通配符
     import {withRouter} from 'react-router-dom'
     withRouter ：加工一般组件，可以使用路由组件的方法，返回一个新组件
+
+# 第七章： redux
+多个组件共享状态
+
+## redux三大核心概念

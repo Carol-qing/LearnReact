@@ -8,7 +8,6 @@ import {withRouter} from 'react-router-dom'
     forward = ()=>{
         this.props.history.goForward()
     }
-
     go =()=>{
         this.props.history.go(-2)
     }
