@@ -13,25 +13,21 @@ const DetailInfo =[
 export default class Detail extends Component {
   render() {
     console.log(this.props);
-
-    const {id,title} = this.props.location.state || {} //state参数
-
+    // const {id,title} = this.props.location.state || {}
+    
     // const {search} =this.props.location //接收search参数
     // const {id,title} =qs.parse(search.slice(1)) //借助querystring-es3解析
     
-    // const {id,title} = this.props.match.params //接收params参数
+    const {id,title} = this.props.match.params //接收params参数
     
     const findResult = DetailInfo.find((obj)=>{
-      return obj.id === id
+      return obj.id ===id
     })
-
-
     return (
        <div>
-
             <li>ID:{id}</li>
             <li>TITLE:{title}</li>
-            <li>CONTENT:{findResult.content}</li> 
+            <li>CONTENT:{findResult.content}</li>
        </div>
     )
   }

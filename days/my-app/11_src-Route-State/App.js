@@ -13,9 +13,7 @@ export default class App extends Component {
 <div>
     <div className="row">
       <div className="col-xs-offset-2 col-xs-8">
-        <div className="page-header">
-            <Header/>
-        </div>
+        <div className="page-header"><Header/></div>
       </div>
     </div>
     <div className="row">
@@ -37,7 +35,7 @@ export default class App extends Component {
             <Switch>
             <Route path="/about" component={About}/>
             <Route path="/home" component={Home}/>
-            <Redirect to="/about"/>
+            <Redirect to="/home"/>
             </Switch>
           </div>
         </div>
