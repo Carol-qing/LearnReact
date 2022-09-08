@@ -8,7 +8,6 @@ const root = createRoot(container)
 
 root.render(<App/>)
 
-// 监测redux中状态的改变，如果改变调用render
 store.subscribe(()=>{
     root.render(<App/>)   
 })

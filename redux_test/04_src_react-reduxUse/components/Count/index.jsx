@@ -1,44 +1,35 @@
 import React,{ Component } from 'react'
-import store from '../../redux/store'
 
-export default class Count extends Component {
+export default class Count extends Component {  
     state = {
         carName:'奔驰-233'
-    }
-    componentDidMount(){
-        // 检测redux中状态的变化，只要变化就调用render
-        store.subscribe(()=>{
-            this.setState({})
-        })
     }
 
     increment = () =>{
         const {value} = this.selectNum
-        store.dispatch({type:'increment',data:value*1})
+        this.props.jia(value*1)
     }
     decrement = () =>{
         const {value} = this.selectNum
-        store.dispatch({type:'decrement',data:value*1})
+        this.props.jian(value*1)
     }
     odd = () =>{
         const {value} = this.selectNum
-        const {count} = this.state
-        if(count %2 !== 0){
-            this.setState({count:count + value*1})
+        const count = this.props.count
+        if(count % 2 !== 0){
+            this.props.jia(value*1)
         }
     }
     sync = () =>{
-        setTimeout(()=>{
-            const {value} = this.selectNum
-            const {count} = this.state
-            this.setState({count:count + value*1})
-        },500)
+        const {value} = this.selectNum
+        this.props.jiaAsync(value*1,500)
     }
 
     render() {
+        // console.log('UI组件接收到的props：'+this.props.jia);
         return (
         <div>
-            <h2>当前计数为：{store.getState()}</h2>
+            <h2>当前计数为：{this.props.count}</h2>
             <select ref={c =>this.selectNum = c}>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
