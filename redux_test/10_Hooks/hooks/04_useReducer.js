@@ -1,5 +1,5 @@
 /*
-    useReducer是useState的替代方案
+    useReducer是useState的替代方案，可以向子组件传递dispatch而不是会回调函数
 */
 import {useReducer} from 'react'
 

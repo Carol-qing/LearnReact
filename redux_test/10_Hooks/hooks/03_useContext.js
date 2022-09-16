@@ -2,6 +2,7 @@ import {createContext,useState,useContext} from 'react'
 
 /*
     useContext可以帮助我们跨越组件层级直接传递变量，实现共享，相当于props
+    可以看作为一个中间组件，传递的默认是一个对象
 */
 
 // 创建一个context
