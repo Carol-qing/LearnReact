@@ -1,15 +1,24 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+/testReport
+/allure-results
 
 # dependencies
 /node_modules
-/.pnp
-.pnp.js
+
+/public/pulmonary_data
+
+# idea
+.idea
 
 # testing
 /coverage
 
 # production
 /build
+
+# docs
+/docs/assemble
 
 # misc
 .DS_Store
@@ -21,3 +30,24 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+TODO.md
+package-lock.json
+res.svg
+yarn-error.log
+yarn.lock
+*.rdb
+
+# vscode-config
+/.vscode
+.gitignore
+src/config.js
+
+# madge image
+/res.svg
+
+# 3d demo data
+/public/mpr_data
+
+
+/*.svg
