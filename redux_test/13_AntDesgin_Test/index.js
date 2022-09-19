@@ -1,6 +1,6 @@
 import React from 'react'
 import {createRoot} from 'react-dom/client'
-import App from './07-antd/antd_test'
+import App from './antd/antd_test'
 import 'antd/dist/antd.css'
 
 
